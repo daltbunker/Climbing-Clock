@@ -1,0 +1,166 @@
+* {
+    background-color: white;
+    color: black;
+    font-family:Arial, Helvetica, sans-serif;
+    /* margin: 15px; */
+}
+
+.content-wrap div{
+    margin: 15px;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 60px;
+    margin: 20px;
+}
+
+#timerBox {
+    text-align: center;
+    font-size: 20em;
+    border: 6px solid black;
+}
+
+#roundsCount {
+    text-align: center;
+    font-size: 30px;
+}
+
+.btnsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buttons {
+    font-size: 40px;
+    border: 2px solid white;
+    border-radius: 20px;
+    width: 270px;
+    height: 80px;
+}
+
+.btnsRow div button:hover {
+    cursor: pointer;
+}
+
+#startBtn {
+    color: white;
+    background-color: rgb(11, 112, 228);
+}
+
+#startBtn:hover {
+    background-color: rgb(0, 91, 196);
+}
+
+#cancelBtn {
+    color: white;
+    background-color: rgb(194, 41, 41);
+}
+
+#cancelBtn:hover {
+    background-color: rgb(184, 52, 52);
+}
+
+#setBtn {
+    color: white;
+    background-color: rgb(11, 112, 228);
+}
+
+#setBtn:hover {
+    background-color: rgb(0, 91, 196);
+}
+
+#roundsBar input {
+    width: 20px;
+    /* color: green; */
+}
+
+#dropDown {
+    margin-left: 230px;
+    margin-top: 0px;
+}
+
+#volumeBtn {
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 30%;
+    height: 40px;
+    margin: 0 20px;
+}
+
+#volumeId {
+    display: flex;
+}
+
+.form-content-wrap div {
+    margin: 15px;
+}
+
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.climb-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#enterBtn {
+    color: white;
+    background-color: rgb(11, 112, 228);
+    margin: 0 45%;
+}
+
+#enterBtn:hover {
+    cursor: pointer;
+    background-color: rgb(0, 91, 196);
+}
+
+.editTimer label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.editTimer select{
+    width: 10%;
+}
+
+.row-container input {
+    border: 1px solid black;
+    font-size: 25px;
+    width: 80px;
+}
+
+#editRounds {
+    width: 70px;
+    height: 30px;
+}
+
+.error {
+    margin: 10px;
+    color: red;
+}
+
+
+/* .set-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.set-content input{
+    border: 1px solid white;
+    font-size: 25px;
+    width: 80px;
+} */
