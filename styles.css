@@ -77,6 +77,15 @@ h2 {
     background-color: rgb(0, 91, 196);
 }
 
+#pauseBtn {
+    color: white;
+    background-color: rgb(11, 112, 228);
+}
+
+#pauseBtn:hover {
+    background-color: rgb(0, 91, 196);
+}
+
 #roundsBar input {
     width: 20px;
     /* color: green; */
@@ -150,17 +159,3 @@ h2 {
     margin: 10px;
     color: red;
 }
-
-
-/* .set-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border-radius: 10px;
-}
-
-.set-content input{
-    border: 1px solid white;
-    font-size: 25px;
-    width: 80px;
-} */

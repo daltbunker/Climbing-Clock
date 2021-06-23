@@ -14,6 +14,7 @@ function Time(
     this.restMinutes = restMinutes;
     this.restSeconds = restSeconds;
     this.rounds = rounds;
+    this.roundComplete= 1;
 }
 
 function createTime(

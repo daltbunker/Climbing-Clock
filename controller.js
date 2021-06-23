@@ -16,7 +16,8 @@ const imgOn = document.getElementById("imgOn");
 const customCheck = document.getElementById("customCheck");
 const repeatCheck = document.getElementById("repeatCheck");
 const dropDown = document.getElementById("dropDown");
-
+let pauseBtn;
+let audio;
 
 function onPageLoad() {
     startBtn.onclick = onStartBtnClicked;
@@ -35,17 +36,30 @@ function onPageLoad() {
     clearButtons();
 }
 
-function startTimer(duration, rest, display, rounds, audio) {
+function startTimer(
+    duration, 
+    rest, 
+    display, 
+    rounds, 
+    audio, 
+    resume, 
+    state = "climb", 
+    round = 1
+){
     let climb = true;
-    var timer = duration, minutes, seconds;;
-    let round = 1;
+    var timer = duration, minutes, seconds;
     let color = "green";
     let climbStatus = "CLIMB";
-    startBtn.disabled = true;
+    if (state == "rest") {
+        climbStatus = "REST";
+        color = "red";
+        climb = false;
+    }
+    timer = resume;
     interval = setInterval(function () {
 
         document.querySelector("h1").innerText = climbStatus;
-        timerBox.style.borderColor= color;
+        timerBox.style.borderColor = color;
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -73,13 +87,14 @@ function startTimer(duration, rest, display, rounds, audio) {
             clearSetForm();
         }
 
-        if (--timer == 0) {        
+        if (--timer == 0) {        // decrements time
             if(climb){
+                times[0].roundComplete++; // Updates rounds in model for pause/resume
                 round++;
                 timer = rest;
                 climb = false;
                 climbStatus = "REST";
-                color = "red"
+                color = "red";
                 
             }
             else {
@@ -104,12 +119,35 @@ function onStartBtnClicked() {
     let audio = saveAudio[0];
     display = timerBox;
     clearSetForm();
-    startTimer(climbTime, restTime, display, rounds, audio);
+    startTimer(climbTime, restTime, display, rounds, audio, climbTime);
     
     document.querySelector("h1").innerText = "CLIMB";
     startBtn.style.display = "inline";
     startBtn.innerHTML = "Pause";
     cancelBtn.style.display = "inline";
+    startBtn.id = "pauseBtn";
+    pauseBtn = document.getElementById("pauseBtn");
+    pauseBtn.onclick = onPauseBtnClicked;
+    pauseBtn.disabled = false;
+
+}
+
+function resumeTimer() {
+    let time = times[0];
+    let climbTime = getTime();
+    let restTime = getRest();
+    let rounds = time.rounds;
+    let audio = saveAudio[0];
+    let round = times[0].roundComplete;
+    let resume = parseInt(timerBox.textContent.substr(0, 2)) + parseInt(timerBox.textContent.substr(3, ));
+    let state;
+    if (timerBox.style.borderColor == "red") {
+        state = "rest";
+    }
+    else {
+        state = "climb";
+    }
+    startTimer(climbTime, restTime, display, rounds, audio, resume, state, round);
 }
 
 function onSetBtnClicked() {
@@ -129,6 +167,7 @@ function onCancelBtnClicked() {
     }
     timerBox.textContent = "00:00";
     roundsCount.textContent = "Round: 0/0";
+    audio.pause();
     clearTime();
     clearButtons();
     clearSetForm();
@@ -179,8 +218,24 @@ function onVolumeBtnClicked() {
     saveAudio[0] = volume;
 }
 
+function onPauseBtnClicked() {
+    if (pauseBtn.innerHTML == "Resume"){
+        resumeTimer();
+        pauseBtn.innerHTML = "Pause";
+    }
+    else {
+        audio.pause();
+        pauseBtn.innerHTML = "Resume";
+        try {
+            clearInterval(interval);
+        }
+        catch (err) {
+        }
+    }
+}
+
 function play() {
-    let audio = new Audio(
+    audio = new Audio(
         'audio/mixkit-sport-start-bleeps-918.m4a');
     audio.play();
 }
@@ -217,7 +272,6 @@ function validateInput(time) {
 
 
 function clearSetForm() {
-    startBtn.disabled = false;
     document.querySelector("h1").innerText = "Interval Timer";
     timerBox.innerText= "00:00";
 
@@ -235,8 +289,10 @@ function clearButtons() {
     volumeBtn.style.display = "none";
     formContentWrap.style.display = "none";
     contentWrapId.style.display = "block";
+    startBtn.onclick = onStartBtnClicked;
     startBtn.style.display = "none";
     startBtn.innerText = "Start";
+    startBtn.id = "startBtn";
     cancelBtn.style.display = "none";
     setBtn.style.display = "inline";
     timerBox.style.borderColor= "black";
