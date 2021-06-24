@@ -139,7 +139,7 @@ function resumeTimer() {
     let rounds = time.rounds;
     let audio = saveAudio[0];
     let round = times[0].roundComplete;
-    let resume = parseInt(timerBox.textContent.substr(0, 2)) + parseInt(timerBox.textContent.substr(3, ));
+    let resume = parseInt(timerBox.textContent.substr(0, 2)) * 60 + parseInt(timerBox.textContent.substr(3, ));
     let state;
     if (timerBox.style.borderColor == "red") {
         state = "rest";
@@ -167,7 +167,9 @@ function onCancelBtnClicked() {
     }
     timerBox.textContent = "00:00";
     roundsCount.textContent = "Round: 0/0";
-    audio.pause();
+    if (audio) {
+        audio.pause();
+    }
     clearTime();
     clearButtons();
     clearSetForm();
@@ -224,7 +226,9 @@ function onPauseBtnClicked() {
         pauseBtn.innerHTML = "Pause";
     }
     else {
-        audio.pause();
+        if (audio){
+            audio.pause();
+        }
         pauseBtn.innerHTML = "Resume";
         try {
             clearInterval(interval);
