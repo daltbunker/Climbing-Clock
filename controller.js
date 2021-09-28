@@ -151,7 +151,7 @@ function resumeTimer() {
 }
 
 function onSetBtnClicked() {
-    formContentWrap.style.display = "block";
+    form.parentElement.style.display = "block";
     contentWrapId.style.display = "none";
     volumeBtn.style.display = "block";
     imgOff.style.display = "none";
@@ -193,7 +193,7 @@ function onEnterBtnClicked() {
         startBtn.style.display = "inline";
         cancelBtn.style.display = "inline";
         setBtn.style.display = "none";
-        formContentWrap.style.display = "none";
+        form.parentElement.style.display = "none";
         contentWrapId.style.display = "block";
         window.scrollTo(0, 0);
     }
