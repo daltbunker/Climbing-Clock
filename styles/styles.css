@@ -5,6 +5,10 @@
     /* margin: 15px; */
 }
 
+.dropdown {
+    margin: 15px;
+}
+
 .content-wrap div{
     margin: 15px;
 }
@@ -52,11 +56,11 @@ h2 {
 
 #startBtn {
     color: white;
-    background-color: rgb(11, 112, 228);
+    background-color: rgb(34, 34, 51);
 }
 
 #startBtn:hover {
-    background-color: rgb(0, 91, 196);
+    background-color: rgb(44, 44, 66);
 }
 
 #cancelBtn {
@@ -70,20 +74,20 @@ h2 {
 
 #setBtn {
     color: white;
-    background-color: rgb(11, 112, 228);
+    background-color: rgb(34, 34, 51);
 }
 
 #setBtn:hover {
-    background-color: rgb(0, 91, 196);
+    background-color: rgb(44, 44, 66);
 }
 
 #pauseBtn {
     color: white;
-    background-color: rgb(11, 112, 228);
+    background-color: rgb(34, 34, 51);
 }
 
 #pauseBtn:hover {
-    background-color: rgb(0, 91, 196);
+    background-color: rgb(44, 44, 66);
 }
 
 #roundsBar input {
@@ -101,17 +105,20 @@ h2 {
     border: solid 1px black;
     border-radius: 30%;
     height: 40px;
-    margin: 0 20px;
+    /* margin: 0 20px; */
 }
 
 #volumeId {
     display: flex;
 }
 
+#volumeId label{
+    padding-right: 20px;
+}
+
 .form-content-wrap div {
     margin: 15px;
 }
-
 
 .row-container {
     display: flex;
@@ -126,13 +133,13 @@ h2 {
 
 #enterBtn {
     color: white;
-    background-color: rgb(11, 112, 228);
+    background-color: rgb(34, 34, 51);
     margin: 0 45%;
 }
 
 #enterBtn:hover {
     cursor: pointer;
-    background-color: rgb(0, 91, 196);
+    background-color: rgb(44, 44, 66);
 }
 
 .editTimer label {
@@ -155,7 +162,71 @@ h2 {
     height: 30px;
 }
 
+.rounds-volume-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 240px;
+}
+
 .error {
     margin: 10px;
     color: red;
+}
+
+@media screen and (max-width: 900px) {
+    #timerBox {
+        text-align: center;
+        font-size: 5em;
+        border: 6px solid black;
+    }
+
+    #enterBtn {
+        margin: 30px;
+    }
+
+    .row-container {
+        display: block;
+    }
+
+    .row-container input {
+        height: 30px;
+        width: 70px;
+    }
+
+    .row-container h2{
+        font-size: 40px;
+        margin: 10px 0;
+        padding: 0px;
+    }
+
+    .btnsRow {
+        flex-direction: column;
+    }
+
+    #startBtn {
+        margin-top: 40px;
+    }
+
+    #pauseBtn {
+        margin-top: 40px;
+    }
+
+    .climb-content {
+        text-align: center;
+    }
+
+    #roundsBar label {
+        margin-right: 20px;
+    }
+
+    #volumeId {
+        text-align: center;
+    }
+
+    .rounds-volume-container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+    }
+
 }

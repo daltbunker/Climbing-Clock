@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Competition</title>
+</head>
+<body>
+    <div class="main-content">
+        <div class="content-wrap" id="content-wrap-id">
+            <h1>Competition Round</h1>
+            <div id="timerBox">00:00</div>
+            <div id="roundsCount">Round: 0/0</div>
+            <div class="btnsRow">
+                <div>
+                    <button id="startBtn" class="buttons">Start</button>
+                </div>
+                <div>
+                    <button id="setBtn" class="buttons">Set</button>
+                </div> 
+                <div>
+                    <button id="cancelBtn" class="buttons">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-content-wrap" id="formContentWrap">
+            <form name="editForm">
+                <div id="editContentId" class="set-content">
+                    <div class="row-container">
+                        <div id="climbContentId" class="climb-content">
+                            <h2>
+                                Climb
+                            </h2>
+                            <div class="editTimer">
+                                <label for="editMin">Minutes:</label>
+                                <input type="text" name="editMin">
+                                <span class="error" id="climbMinError"></span>
+                            </div>
+                            <div class="editTimer">
+                                <label for="editSec">Seconds:</label>
+                                <input type="text" name="editSec">
+                                <span class="error" id="climbSecError"></span>
+                            </div>
+                            <div class="editTimer" id="roundsBar">
+                                <label for="round">Rounds:</label>
+                                <input type="radio" id="repeatCheck" name="round">
+                                <label for="round">Repeat</label>
+                                <input type="radio" id="customCheck" name="round">
+                                <label for="round">Custom</label>
+                            </div>
+                            <div class="editTimer" id="dropDown">
+                                <select name="round" id="editRounds">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
+                            <div class="editTimer" id="volumeId">
+                                <label>Volume:</label>
+                                <button type="button" id="volumeBtn">
+                                    <img id="imgOn" src="/images/volume_on.jpeg" alt="Audio">
+                                    <img id="imgOff" src="/images/volume_off.jpeg" alt="Mute">
+                                </button>
+                            </div>
+                        </div> 
+                        <div id="restContentId" class="climb-content">
+                            <h2>
+                                Rest
+                            </h2>
+                            <div class="editTimer">
+                                <label for="restMin">Minutes:</label>
+                                <input type="text" name="restMin">
+                                <span class="error" id="restMinError"></span>
+                            </div>
+                            <div class="editTimer">
+                                <label for="restSec">Seconds:</label>
+                                <input type="text" name="restSec">
+                                <span class="error" id="restSecError"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>     
+            <div>
+                <button id="enterBtn" class="buttons">Enter</button>
+            </div>   
+        </div>
+    <script src="controller.js" type="text/javascript"></script>
+    <script src="model.js" type="text/javascript"></script>
+</body>
+</html>

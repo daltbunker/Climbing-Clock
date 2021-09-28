@@ -9,13 +9,13 @@ const climbSecError = document.getElementById("climbSecError");
 const restSecError = document.getElementById("restSecError");
 const restMinError = document.getElementById("restMinError");
 const roundsCount = document.getElementById("roundsCount");
-const formContentWrap = document.getElementById("formContentWrap");
 const contentWrapId = document.getElementById("content-wrap-id");
 const imgOff = document.getElementById("imgOff");
 const imgOn = document.getElementById("imgOn");
 const customCheck = document.getElementById("customCheck");
 const repeatCheck = document.getElementById("repeatCheck");
 const dropDown = document.getElementById("dropDown");
+const form = document.editForm;
 let pauseBtn;
 let audio;
 
@@ -27,7 +27,7 @@ function onPageLoad() {
     enterBtn.onclick = onEnterBtnClicked;
     customCheck.onclick = function () {
         dropDown.style.display = "block"
-    }
+    };
     repeatCheck.onclick = function () {
         dropDown.style.display = "none";
     };
@@ -176,7 +176,6 @@ function onCancelBtnClicked() {
 }
 
 function onEnterBtnClicked() {
-    let form = document.forms["editForm"];
     let rounds = form.editRounds.value;
     if (isNaN(parseInt(rounds))) {
         rounds = "1"
@@ -278,8 +277,6 @@ function validateInput(time) {
 function clearSetForm() {
     document.querySelector("h1").innerText = "Interval Timer";
     timerBox.innerText= "00:00";
-
-    let form = document.forms["editForm"];
     form.editMin.value = "";
     form.editSec.value = "";
     form.editRounds.value = "";
